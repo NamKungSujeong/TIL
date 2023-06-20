@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>Forms Demo</h1>
+    <!-- form : 그룹화된 모든 입력을 담는 상자 -->
+    <!-- 폼을 제출했을 때 폼 데이터를 어디로 보낼지 결정 가능 -->
+    <form action="/form">
+      <!-- action : 폼이 제출되었을 때, 데이터를 보낼 위치와 시간을 지정할 수 있게 해주는 속성 -->
+      <label for="name">username</label>
+      <!-- 특정한 입력값이나 form control 및 텍스트와 직접적으로 연결되어 있음-->
+      <!-- 스크린리더가 인식할 수 있으며 , 레이블 클릭 시 연결된 input 선태 가능 -->
+      <input type="text" placeholder="username" id="name" />
+      <!-- input : 가장 일반적인 요소 -->
+      <!-- placeholder : 무언가를 입력하기 전 미리 보여주는 요소, 무엇을 입력해야 하는지 알려준다는 점에서 중요 -->
+      <input type="password" />
+      <input type="color" />
+      <input type="month" />
+      <input type="number" min="0" max="1000" step="10" />
+      <!-- type="number" : min, max로 최소값, 최대값 설정가능 -->
+      <!-- step으로 단위 설정 가능 -->
+
+      <input type="time" />
+
+      <!-- button : 폼 안에 있으면 클릭시 기본 값으로 폼을 제출함 -->
+      <button>Submit</button>
+      <button type="button">button</button>
+      <!-- type="button" :  button으로만 존재하시 때문에 클릭해도 폼이 제출되지 않음-->
+      <button type="submit">button</button>
+      <!-- type="submit" : 폼 안에 있을 때 기본값, 폼 제출 -->
+      <input type="submit" />
+      <!-- 위의 경우 button과 같은 역할을 하긴 하지만 텍스트를 넣기에 불편 하기 때문에 굳이?-->
+
+      <!-- input의 name 속성 -->
+      <!-- 데이터가 서버로 전송될 때 input 안에 있는 값을 지칭하기 위함-->
+      <input type="text" name="username" />
+      <!-- submit 버튼 클릭시 url이 form?username=남궁수정 과 같이 바뀐것을 볼 수 있음-->
+    </form>
+
+    <hr />
+    <form action="https://www.reddit.com/search">
+      <label for="reddit">reddit</label>
+      <input type="text" name="q" id="reddit" />
+      <button>검색</button>
+    </form>
+    <form action="https://www.google.com/search">
+      <label for="google">google</label>
+      <input type="text" name="q" id="google" />
+      <button>검색</button>
+    </form>
+
+    <h2>More Input</h2>
+    <form action="/birds">
+      <label for="agree">agree</label>
+      <input type="checkbox" name="agree" id="agree" checked />
+      <!-- checkbox : 여러개 선택 가능 -->
+      <!-- checked : 처음부터 체크 되어있게 해주는 요소 -->
+      <div>
+        <label for="man">man</label>
+        <input type="radio" name="gender" id="man" value="man" />
+        <!-- radio : 같은 name의 그룹들 중 하나만 선택 가능함 -->
+        <!-- value : 사용자에게 보이지는 않지만 폼이 제출될 때 전송되는 값 -->
+        <label for="woman">woman</label>
+        <input type="radio" name="gender" id="woman" value="woman" />
+      </div>
+      <div>
+        <!-- select : 여러 옵션들을 하나로 묶어줌 -->
+        <label for="select">select</label>
+        <select name="select" id="select">
+          <option value="가">가</option>
+          <!-- value : 사용자에게 보이지는 않지만 폼이 제출될 때 전송되는 값 -->
+          <option value="니">니</option>
+          <option value="다">다</option>
+          <option value="라">리</option>
+        </select>
+      </div>
+    </form>
+
+    <h2>범위 및 텍스트 영역 폼 컨트롤러</h2>
+    <form>
+      <input type="range" min="0" max="10" step="2" value="0" />
+      <!-- min, max로 최대값 최소값 설정 가능 -->
+      <!-- step으로 단위 설정 가능 -->
+      <!-- value로 최초값 설정 가능 -->
+      <textarea name="textarea" id="" cols="30" rows="10"></textarea>
+      <!-- textarea : 여러줄의 텍스트 입력 -->
+      <!-- rows : 행의 기본값 설정 , cols : 열의 기본값 설정-->
+    </form>
+    <h2>유효성 검시</h2>
+    <form>
+      <input type="text" required maxlength="10" minlength="1" />
+      <!-- required : input 칸이 채워져야만 폼 제출 가능-->
+      <!-- maxlength : 최대 글자수 지정 가능, minlength : 최소 글자수 -->
+      <!-- url : url만 입력가능 -->
+    </form>
+  </body>
+</html>
