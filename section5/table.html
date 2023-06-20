@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+  </head>
+  <body>
+    <h1>Table 만들기</h1>
+    <table>
+      <thead>
+        <!-- thead : 표의 헤더 -->
+        <tr>
+          <!-- th : 행의 헤더 -->
+          <th>이름</th>
+          <th>몸무게</th>
+          <th>최대 몸무게</th>
+          <th>깃의 유무</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- tbody : 표의 바디 -->
+        <!-- tr : table row , 표 안의 셀들이 모인 행-->
+        <tr>
+          <!-- td : 테이블 데이터 셀 또는 테이블 데이터를 줄인 말 -->
+          <!-- 데이터를 포함한 표 안에 있는 단일 셀 -->
+          <td>타조</td>
+          <td>104kg</td>
+          <td>140kg</td>
+          <td>no</td>
+        </tr>
+
+        <tr>
+          <td>소말리아 타조</td>
+          <td>90kg</td>
+          <td>*</td>
+          <td>no</td>
+        </tr>
+      </tbody>
+      <tfoot></tfoot>
+      <!-- tfoot : 테이블의 footer -->
+    </table>
+
+    <h2>V2</h2>
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="2">이름</th>
+          <th colspan="2">평균 무게</th>
+          <th rowspan="2">깃의 유무</th>
+        </tr>
+        <tr>
+          <th>몸무게</th>
+          <th>최대 몸무게</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>타조</td>
+          <td>104kg</td>
+          <td>140kg</td>
+          <td>no</td>
+        </tr>
+
+        <tr>
+          <td>소말리아 타조</td>
+          <td>90kg</td>
+          <td>230</td>
+          <td>no</td>
+        </tr>
+        <tr>
+          <td>앵무새</td>
+          <td>10kg</td>
+          <td>12kg</td>
+          <td>no</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
