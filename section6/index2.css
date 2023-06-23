@@ -1,26 +1,30 @@
 /* text-align : 텍스트 정렬, 기본값은 왼쪽 정렬 */
 
-h1 {
-  text-align: center;
-}
-
 /* font-weigth : 폰트 굵기 */
 /* border, normal, bold로도 설정 가능하고 100 - 700 숫자로도 설정 가능 */
 /* 400이 normal, 700은 bold */
 
-h2 {
-  font-weight: 400;
-}
-
 /* text-decoration : 밑줄(underline), 윗줄(overline), 취소선(line-through) 등 */
-
-h2 {
-  text-decoration: blue line-through wavy;
-  /* 다음과 같이 색상, 스타일 지정도 가능 */
-}
 
 /* line-height : 텍스트의 줄간격 */
 /* letter-spacing : 글자 사이의 간격 조절 */
-p {
+
+/* font-size : 텍스트 크기 */
+/* px : 가장 흔히 사용되는 절대 단위,
+다른 요소나 원래 폰트 크기 등에 영향을 받지 않는 한 내 문서 안에서는 항상 동일
+*/
+
+/* font-family : 텍스트 폰트 변경 */
+
+h1 {
+  text-align: center;
+  font-weight: 400;
+  text-decoration: blue underline wavy;
+  /* 다음과 같이 색상, 스타일 지정도 가능 */
   line-height: 30px;
+  letter-spacing: 20px;
+  font-size: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-stack - 사용하려는 폰트를 순서대로 적은 목록 */
+  /* 가장 앞에 있는 폰트가 없으면 두번째 폰트를, 두번째도 없으면 세번쩨 폰트를 실행시키는 개념 */
 }
