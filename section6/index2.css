@@ -1,0 +1,26 @@
+/* text-align : 텍스트 정렬, 기본값은 왼쪽 정렬 */
+
+h1 {
+  text-align: center;
+}
+
+/* font-weigth : 폰트 굵기 */
+/* border, normal, bold로도 설정 가능하고 100 - 700 숫자로도 설정 가능 */
+/* 400이 normal, 700은 bold */
+
+h2 {
+  font-weight: 400;
+}
+
+/* text-decoration : 밑줄(underline), 윗줄(overline), 취소선(line-through) 등 */
+
+h2 {
+  text-decoration: blue line-through wavy;
+  /* 다음과 같이 색상, 스타일 지정도 가능 */
+}
+
+/* line-height : 텍스트의 줄간격 */
+/* letter-spacing : 글자 사이의 간격 조절 */
+p {
+  line-height: 30px;
+}

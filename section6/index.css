@@ -1,0 +1,28 @@
+/* color : 글자색을 바꿔줌 */
+/* background-color : 배경색을 바꿔줌 */
+
+button {
+  color: red;
+  background-color: aqua;
+}
+
+p {
+  color: chocolate;
+}
+
+/* RGB : 이름이 붙어있는 약 140가지의 색 이외의 색을 사용하고 싶을 때  */
+/* red, green, blue 색을 조합해서 만드는 색 */
+/* 각 색의 범위는 0 - 255 */
+
+/* h2 {
+  color: rgb(89, 151, 0);
+} */
+
+/* Hex : rgb와 동일하게 red, green, blue 색을 0 - 255 범위에서 조합*/
+/* hex는 16진법으로 표현한다는 차이점 */
+/* #ffff00 에서 2자리씩 red, green, blue를 나타냄 */
+/* 같은 숫자로 이루어졌을 경우 3자리만 적어도 됨 ex)#cc55ee -> #c5e */
+
+h2 {
+  color: #5fcffc;
+}
