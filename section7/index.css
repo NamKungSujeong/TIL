@@ -36,3 +36,77 @@ li a {
   color: teal;
 }
 /* li의 자식이 a를 선택 */
+
+/* 6. 인접 선택자(결합자) : a + b {}의 형태로 a 태그 다음에 오면서 같은 단계에 있는 b 태그를 선택 */
+/* 형제의 개념 */
+
+/* 7. 직계 자손 선택자 : a > b {} 의 형태 : 
+a 태그 바로 아래에 있는 b 태그를 선택
+이때 모든 b를 선택하는게 아닌 바로 아래에 있는 하나만 선택
+*/
+
+/* 8. 속성 선택자 : 타입 지정이 가능한 여러 태그들(input, button 등) 중에서
+특정 태그만 선택하고 싶을 때
+*/
+
+input[type="text"] {
+  width: 300px;
+  color: blue;
+}
+
+input[type="password"] {
+  width: 200px;
+  color: pink;
+}
+
+/* a[href*="google"] {} 과 같이 *=를 사용하는 경우 유사한 것을 골라줌*/
+
+/* 9. 가상 클래스 : 선택자의 끝에 붙여 상태를 특정하는 키워드, :으로 사용 시작을 알림 */
+/* hover : 커서를 올렸을 때 */
+button:hover {
+  background-color: aquamarine;
+}
+
+/* active : 무언가가 활성화 되었을 때, 가장 흔하게 사용하는 건 링크 등이 클릭 하고 있을 때 */
+a:active {
+  color: red;
+}
+
+/* checked : 체크박스나 라디오 버튼이 체크 되었을 때 */
+input[type="checkbox"]:checked {
+  color: blueviolet;
+}
+
+/* nth-of-type() : 형제 그룹내 위치에 따라 선택할 수 있게  */
+div:nth-of-type(3) {
+  background-color: beige;
+  /* 형제 그룹의 3번째가 선택 */
+}
+div:nth-of-type(3n) {
+  background-color: beige;
+  /* 형제 그룹의 3번째 마다 선택(3, 6, 9,...) */
+}
+
+/* 10. 가상 요소 : 선택된 요소의 특정 부분만 선택 */
+/* ::first-letter 단락의 첫번째 글자 선택 */
+
+p::first-letter {
+  font-size: 30px;
+}
+
+/* first-line : 첫줄 */
+p::first-line {
+  color: aquamarine;
+}
+
+/* selection : 문서의 강조 표시한 부분에 적용, 드래그 할 때 적용 */
+p::selection {
+  background-color: yellow;
+}
+
+/* !important : !important가 있을 경우 다른 어떤 지시보다 우선시함 */
+/* 특이도를 무시하고 자동으로 우선하게 만들기 때문에 혼란을 줄 수 있어 사용을 자제하는 것이 좋음 */
+
+p::selection {
+  background-color: red !important;
+}
