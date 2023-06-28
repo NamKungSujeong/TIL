@@ -1,0 +1,42 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: #3d405b;
+  border: 2px solid black;
+  margin: 10px;
+  display: inline-block;
+}
+
+#middle {
+  background-color: #81b29a;
+}
+
+/* static : default 값 , top, bottom 등을 이용해 위치에 변화를 줄 수 없음*/
+
+/* relative : 문서의 일반적인 흐름에 따라 위치가 정해지지만
+top, bottom, left, right를 이용해 현재 위치에서 offset을 줄 수 있음
+*/
+
+#relative #middle {
+  position: relative;
+  top: 50px;
+  /* offset을 주지 않은 원래 위치에서 상대적인 위치로 이동 */
+  left: 50px;
+}
+
+/* absolute : 문서의 일반적인 흐름에서 요소가 제거되고 공간도 배정되지 않음 */
+/* position : relative를 가지고 있는 부모를 기준으로 하면 없을 경우 body를 기준으로 함 */
+#absolute #middle {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+/* fixed : 문서의 흐름에서 제거되며 공간도 차지하지 않고 body를 기준으로 움직임 */
+/* 스크롤을 움직여도 그 위치에 고정되어 있음 */
+
+#fixed #middle {
+  position: fixed;
+  top: 0px;
+  left: 0;
+}

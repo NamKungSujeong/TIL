@@ -1,0 +1,25 @@
+/* 알파 채널 : rgba(red, green, blue, alpha:불투명도) */
+/* 0(완전 투명) ~ 1(완전 불투명) 사이  */
+/* 색에만 영향을 미치고 컨텐츠나 요소에는 영향을 미치지 않음 */
+section {
+  width: 500px;
+  height: 500px;
+  background-color: magenta;
+}
+
+#rgba {
+  width: 50%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* opacity : 특정 요소에 지정해서 그 해당 요소나 해당 요소의 콘텐츠 및
+자손을 포함한 전체요소의 투명도를 결정
+*/
+
+#opacity {
+  width: 50%;
+  height: 50%;
+  background-color: yellow;
+  opacity: 0.5;
+}
