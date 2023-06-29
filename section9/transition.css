@@ -1,0 +1,91 @@
+/* transition : 힌 특성 값에서 다른 값으로 변화할 때
+전환으로 애니메이션 효과를 주는 것
+*/
+
+/* .circle {
+  width: 300px;
+  height: 300px;
+  background-color: aqua;
+  border-radius: 50%;
+  transition: background-color 1s 1s;
+  /* 특성 / 시간 / 지연 시간 */
+/* } */
+
+.circle:hover {
+  background-color: blueviolet;
+  border-radius: 0;
+}
+*/
+
+/* transition의 timing */
+/* linear : 일정한 속도로 */
+/* ease-in : 천천히 시작됐다가 속도라 점점 빨라짐 */
+/* steps : 단계에 걸쳐서 */
+/* cubic-bezier : 정해진 이징(easing) 값이 아닌 사용자가 직접 커브를 조절해서 디테일한 애니메이션을 만들 수 있음. */
+
+section div {
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+  margin: 20px 0;
+  transition: margin-left 3s;
+}
+
+section:hover div {
+  margin-left: 500px;
+}
+
+/* transform */
+
+h1 {
+  background-color: aqua;
+  border: 5px solid black;
+  color: #eae2b7;
+  padding: 0.7em;
+  width: 300px;
+  font-size: 1.8em;
+  text-align: center;
+  margin: 20px auto;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1:nth-of-type(2n) {
+  background-color: #e9c46a;
+}
+
+h1:nth-of-type(3n) {
+  background-color: #f4a261;
+}
+
+h1:nth-of-type(4n) {
+  background-color: #e76f51;
+}
+
+h1:nth-of-type(1) {
+  /* transform-origin: bottom right; */
+  /* 실행시킬 위치를 정할 수 있음 */
+  transform: rotate(45deg);
+  /* rotate : 회전 */
+}
+
+h1:nth-of-type(2) {
+  transform: scale(0.5);
+  /* scale : 축소, 확대 */
+}
+
+h1:nth-of-type(3) {
+  transform: translateX(200px);
+  /* translate : 요소를 움직이는 기능 */
+}
+
+h1:nth-of-type(4) {
+  transform: translateY(200px);
+  /* translate : 요소를 움직이는 기능 */
+}
+
+h1:nth-of-type(5) {
+  transform: skew(30deg);
+  /* skew : 2차원 평면 상에서 기울이기, 비틀기 */
+}
+
+/* 여러 기능을 복합적으로 사용할 수 있음 */
