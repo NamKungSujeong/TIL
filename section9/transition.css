@@ -89,3 +89,44 @@ h1:nth-of-type(5) {
 }
 
 /* 여러 기능을 복합적으로 사용할 수 있음 */
+
+/* 97. 버튼 hover 효과 */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #151b29;
+}
+
+button {
+  background: none;
+  color: #ffa260;
+  border: 2px solid;
+  padding: 1em 2em;
+  font-size: 1em;
+  transition: all 0.3s;
+}
+
+button:hover {
+  border-color: #f1ff5c;
+  color: white;
+  box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+  transform: translateY(-0.25em);
+}
+
+/* background-image : 배경에 사진을 넣을 수 있음 */
+div {
+  background-image: url();
+  background-size: cover;
+  /* background-size 
+    1. contain : 비율을 유지, 이미지 잘림 없이 최대한 꽉 차게 but 이지미 크기가 더 작으면 반복됨 
+    2. cover : 비율을 유지하며 꽉 차게 나타나지만 잘림이 있음
+    */
+  background-position: bottom;
+  /* background-position : 설정값을 기준으로 맞춰짐 */
+}
+
+/* background 속기법은 순서가 딱히 중요하지 않음 */
+/* but position과 size는 position/size 의 형태로 작성해야 함 */
