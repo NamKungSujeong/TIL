@@ -1,0 +1,77 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+h1 {
+  text-align: center;
+}
+#container {
+  /* display : flex */
+  /* 부모 요소에서 선언해 주어야 그 아래 있는 자식 요소들에 적용됨 */
+  display: flex;
+  background-color: #003049;
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+  border: 5px solid #003049;
+}
+
+/* main axis(주축)
+- 기본 방향 : 왼쪽 -> 오른쪽으로 정렬
+*/
+
+/* cross axis(교차축) 
+- 기본 방향 : 위 -> 아래로 정렬
+*/
+
+/* flex-direction : 주축 방향을 결정하는 속성
+- row : 기본값, 왼 -> 오
+- row-reverse : 오 -> 왼
+- column 위 -> 아래
+- column-reverse : 아래 -> 위
+*/
+
+/* justify-content : 주축을 기준으로 요소와 콘텐츠를 어떻게 뱌치할지 결정하는 속성
+- flex-start : 기본값, 주축의 시작에서부터 정렬
+- flex-end : 주축의 끝에서부터 정렬
+- center : 주축의 가운데에 정렬
+- space-between : 바깥쪽 여백을 다 없애고 요소 사이에 간격을 띄움, 요소 사이에만 빈 공간이 생기고 요소와 칸테이너 사이에는 빈공간이 없음
+- space-around : 요소의 둘레에 똑같은 면적의 여백을 부여
+- space-evenly : 요소 사이, 요소와 컨테이너 사이 모두 같은 크기의 여백을 부여
+*/
+
+/* align-items : 교차축을 따라 아이템을 배열
+- flex-start : 기본값, 교차축의 시작에서부터 정렬
+- flex-end : 교차축의 끝에서부터 정렬
+- center : 교차축의 가운데에 정렬
+- baseline : 텍스트의 기준선에 맞춰 정렬
+- space-between : 바깥쪽 여백을 다 없애고 요소 사이에 간격을 띄움, 요소 사이에만 빈 공간이 생기고 요소와 칸테이너 사이에는 빈공간이 없음
+- space-around : 요소의 둘레에 똑같은 면적의 여백을 부여
+- space-evenly : 요소 사이, 요소와 컨테이너 사이 모두 같은 크기의 여백을 부여
+*/
+
+/* align-content : 행이나 열이 여러 개일 때 교차축을 기준으로 정렬
+- space-between
+- flex-start
+- flex-end
+*/
+
+/* align-self :
+- align-items와 비슷하지만 단일 요소에 사용하거나 
+플렉스 컨테이너에서 두 개 요소에 개별로 사용
+- 플렉스 컨테이너 자제에는 쓰지 않는 특성으로 개별 요소에 적용할 때 사용
+*/
+
+/* flex-wrap : 
+요소들의 길이가 컨테이너 길이를 넘어가게 되면
+주축이 수평일 때 새로운 행을 만들어 요소를 정렬하고
+주축이 수직일 때는 새로운 열을 만들어 요소를 정렬하는 속성
+*/
+
+#container div {
+  width: 200px;
+  height: 200px;
+}
+
+div:nth-of-type(3) {
+  align-self: center;
+}
