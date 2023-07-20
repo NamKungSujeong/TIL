@@ -97,3 +97,40 @@
 //     break;
 //   }
 // }
+
+// for.. of 구문
+// 배열을 반복 시킬 때 인덱스를 굳이 필요하지 않을 경우 사용하기 좋음
+
+for (let char of "hello word") {
+  console.log(char);
+}
+
+// 객체 루프
+// 키-값 형태의 객체는 반복 가능한 객체로 인식되지 않음
+// 이때 for.. in 구문 사용
+
+const testScore = {
+  a: 10,
+  b: 30,
+  c: 40,
+  d: 20,
+};
+
+// for (let person in testScore) {
+//   console.log(person); // 키만 출력됨
+// }
+
+for (let person in testScore) {
+  console.log(testScore[person]); // 값 출력
+}
+
+// 다른 방법
+
+// 배열로 만들어 주는 메서드
+Object.keys(testScore); // 키 배열
+Object.values(testScore); // 값 배열
+Object.entries(testScore); // 키-값의 형태 배열
+
+for (let person in Object.values(testScore)) {
+  console.log(person); // 값 출력
+}
