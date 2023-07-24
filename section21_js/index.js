@@ -1,4 +1,5 @@
 // // 1. 함수 범위
+
 // function collectEggs() {
 //   let total = 6;
 //   //   console.log(total); // 6출력
