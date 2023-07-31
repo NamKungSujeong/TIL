@@ -21,3 +21,14 @@ for (let img of allImage) {
 
 // 3. document.getElementsByClassName
 // 해당 클래스 요소를 모두 반환
+
+// 4. querySelector : id, 클래스, 태그 네임 모두 선택 가능
+// 같은 여러 요소가 있을 경우 첫번째 값만 반환
+
+document.querySelector("p");
+document.querySelector(".square");
+document.querySelector("#History");
+
+document.querySelector("img:nth-of-type(2)");
+
+// querySelectorAll : 일치하는 모든 요소를 반환
