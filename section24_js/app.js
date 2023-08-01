@@ -32,3 +32,13 @@ document.querySelector("#History");
 document.querySelector("img:nth-of-type(2)");
 
 // querySelectorAll : 일치하는 모든 요소를 반환
+
+// 다음과 같이 속성 값 변경 가능
+document.querySelector("img").id = "aaa";
+
+const firstLink = document.querySelector("a");
+
+// 속성 값 가지고 오기
+firstLink.getAttribute("href");
+// 속성 값 변경하기
+firstLink.setAttribute("href", "http://www.google.com");
