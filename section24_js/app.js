@@ -42,3 +42,57 @@ const firstLink = document.querySelector("a");
 firstLink.getAttribute("href");
 // 속성 값 변경하기
 firstLink.setAttribute("href", "http://www.google.com");
+
+// 스타일 변경
+const h1 = document.querySelector("h1");
+h1.style.color = "red";
+
+const allLinks = document.querySelectorAll("a");
+for (let link of allLinks) {
+  link.style.color = "rgb(0, 100, 134)";
+  link.style.textDecorationColor = "magenta";
+}
+// inline 스타일만 읽을 수 있으며 값을 넣어줄 때도 인라인으로 들어가기 때문에 좋은 방법은 아님
+
+// classList : 요소의 클래스를 제어하고 검색, 조작 등을 하기 위해 호출되는 객체
+
+const h2 = document.querySelector("h2");
+
+// 클래스 추가
+h2.classList.add("purple");
+// 클래스 제거
+h2.classList.remove("purple");
+
+h2.classList.toggle("purple");
+// class가 있으면 제거를 , 없으면 추가를
+
+// 계층 이동
+const firstBold = document.querySelector("b");
+firstBold.parentElement; //<p>...</p>
+
+const paragraph = firstBold.parentElement;
+paragraph.childElementCount; // 8
+// 모든 요소에게 부모 요소는 하나지만 자식은 여러개 일 수 있음
+
+firstBold.previousElementSibling; // 이전 형제 요소
+firstBold.nextElementSibling; // 디음 형제 요소
+
+// appendChild
+// 1. 새 요소 만들기
+const newImg = document.createElement("img");
+newImg.src = "url";
+// 2. appendChild를 통해 해당 요소의 맨 마지막 자식으로 추가
+document.body.appendChild(newImg);
+// body의 마지막 자식으로 newImg를 추가
+
+// append
+// 새로운 설정 필요 없이 바로 추가 가능
+// 여러개 추가 가능
+const p = document.querySelector("p");
+p.append("new p", "new 2");
+
+// prepend : 첫 번쨰 자식으로 추가
+
+const newB = document.createElement("b"); // 생성
+newB.append("hi"); // 속성, 텍스트 등 삽입
+p.prepend(newB); // 요소 추가
