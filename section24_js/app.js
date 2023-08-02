@@ -96,3 +96,9 @@ p.append("new p", "new 2");
 const newB = document.createElement("b"); // 생성
 newB.append("hi"); // 속성, 텍스트 등 삽입
 p.prepend(newB); // 요소 추가
+
+// removeChild : 자식 요소 삭제
+// 자식 요소를 바로 삭제할 수 없고 부모요소를 선택해서 삭제 가능
+// 부모요소.removeChild()
+
+// remove : 부모나 자식에 상관없이 요소 삭제
