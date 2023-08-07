@@ -11,3 +11,10 @@ form.addEventListener("submit", (e) => {
   li.innerText = input.value;
   input.value = " ";
 });
+
+// 이벤트 위임
+// 부모 요소에 이벤트 수신기를 추가하는 것
+// 이벤트 수신기가 추가된 시점에 페이지에 없던 요소를 다루어야 하는 상황에서 편함
+ul.addEventListener("click", (e) => {
+  e.target.remove();
+});
