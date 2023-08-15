@@ -43,3 +43,8 @@
 
 // http headers
 // header : 요청과 함께 정보를 전달하는 부수적인 방식
+
+const a = {
+  age: 13,
+  name: "sj",
+};
