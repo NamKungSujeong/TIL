@@ -44,7 +44,10 @@
 // http headers
 // header : 요청과 함께 정보를 전달하는 부수적인 방식
 
-const a = {
-  age: 13,
-  name: "sj",
-};
+const data = `{"name": "Luke Skywalker", "height": "172", "mass": "77", "hair_color": "blond", "skin_color": "fair", "eye_color": "blue", "birth_year": "19BBY", "gender": "male", "homeworld": "https://swapi.dev/api/planets/1/"}`;
+
+fetch("https://api.coinpaprika.com/v1/tickers?quotes=KRW")
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((err) => console.log(err));
