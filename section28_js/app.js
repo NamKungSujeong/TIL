@@ -44,10 +44,21 @@
 // http headers
 // header : 요청과 함께 정보를 전달하는 부수적인 방식
 
-const data = `{"name": "Luke Skywalker", "height": "172", "mass": "77", "hair_color": "blond", "skin_color": "fair", "eye_color": "blue", "birth_year": "19BBY", "gender": "male", "homeworld": "https://swapi.dev/api/planets/1/"}`;
+// const data = `{"name": "Luke Skywalker", "height": "172", "mass": "77", "hair_color": "blond", "skin_color": "fair", "eye_color": "blue", "birth_year": "19BBY", "gender": "male", "homeworld": "https://swapi.dev/api/planets/1/"}`;
 
 fetch("https://api.coinpaprika.com/v1/tickers?quotes=KRW")
   .then((response) => {
-    console.log(response);
+    return response.json();
   })
+  .then((json) => console.log(json))
   .catch((err) => console.log(err));
+
+// axios
+// http 요청의 생성과 처리를 최대한 간소화할 목적으로 만들어짐
+// js에서 기본으로 제공하는 게 아니라 따로 build해줘야함
+// promise 반환
+
+axios
+  .get("https://api.coinpaprika.com/v1/tickers?quotes=KRW")
+  .then((res) => console.log(res));
+// json으로 파싱해줄 필요가 없음
