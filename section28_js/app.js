@@ -54,6 +54,7 @@ fetch("https://api.coinpaprika.com/v1/tickers?quotes=KRW")
   .catch((err) => console.log(err));
 
 // axios
+
 // http 요청의 생성과 처리를 최대한 간소화할 목적으로 만들어짐
 // js에서 기본으로 제공하는 게 아니라 따로 build해줘야함
 // promise 반환
