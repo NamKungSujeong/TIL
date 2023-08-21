@@ -10,3 +10,7 @@ String.prototype; // 모든 문자열에 대한 프로토타입 객체
 String.prototype.yell = function () {
   console.log(this.toUpperCase());
 };
+
+// 객체지향 프로그래밍
+
+// 특성이나 메서드 정의를 포함하는 클래스나 객체 템플릿을 생성
