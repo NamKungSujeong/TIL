@@ -14,3 +14,15 @@ String.prototype.yell = function () {
 // 객체지향 프로그래밍
 
 // 특성이나 메서드 정의를 포함하는 클래스나 객체 템플릿을 생성
+
+// 팩토리 함수
+function hex(r, g, b) {
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+
+function rgb(r, g, b) {
+  return `rgb(${r} ${g} ${b})`;
+}
+
+hex(255, 100, 25);
+rgb(255, 100, 25);
