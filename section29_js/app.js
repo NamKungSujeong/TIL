@@ -26,3 +26,20 @@ function rgb(r, g, b) {
 
 hex(255, 100, 25);
 rgb(255, 100, 25);
+
+// 값을 전달하면 팩토리가 객체를 만들어 주고
+// 마지막에 반환하여 사용할 수 있게 해줌
+function makeColor(r, g, b) {
+  const color = {};
+  color.r = r;
+  color.g = g;
+  color.b = b;
+  color.rgb = function () {
+    const { r, g, b } = this;
+    return `rgb(${r} ${g} ${b})`;
+  };
+  return color;
+}
+
+const firxtColor = makeColor(35, 255, 150);
+firxtColor.rgb();
