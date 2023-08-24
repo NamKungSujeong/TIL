@@ -43,3 +43,12 @@ function makeColor(r, g, b) {
 
 const firxtColor = makeColor(35, 255, 150);
 firxtColor.rgb();
+
+// 생성자 함수
+function Color(r, g, b) {
+  this.r = r;
+  this.g = g;
+  this.b = b;
+}
+
+new Color(255, 10, 100);
