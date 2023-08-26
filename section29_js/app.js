@@ -39,6 +39,7 @@ function makeColor(r, g, b) {
     return `rgb(${r} ${g} ${b})`;
   };
   return color;
+  
 }
 
 const firxtColor = makeColor(35, 255, 150);
