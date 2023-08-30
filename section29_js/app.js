@@ -118,3 +118,43 @@ class Color {
 }
 
 const c1 = new Color(255, 67, 89, "tomato");
+
+// 확장 및 슈퍼 키워드
+
+class Pet {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  eat() {
+    return `${this.name} is eating`;
+  }
+}
+
+class Cat extends Pet {
+  constructor(name, age, livesLeft = 9) {
+    // this.name = name;
+    // this.age = age;
+    // 다른 데이터를 this에 추가하고 싶을 때
+    // 복제하고 싶지 않은 부분에 super 키워드 사용
+    // super는 확장시킨 즉 상속한 클래스를 참조
+    super(name, age);
+    this.livesLeft = livesLeft;
+  }
+  meow() {
+    return "MEOWWWW";
+  }
+}
+
+class Dog extends Pet {
+  bark() {
+    return "Bark!!";
+  }
+}
+
+// 두 클래스는 살짝 다르지만 여전히 같은 부분이 많음
+// js에서 가능한 옵션 중 하나가 바로 두 클래스가 모두 확장시킬 수 있는 따로 만든 별개의 클래스로 이동 가능
+
+// extends :  클래스가 상속 받을 수 있는 키워드
+
+// super
