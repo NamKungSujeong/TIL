@@ -2,8 +2,12 @@ const express = require("express"); // express 불러오기
 const app = express(); // express 실행
 // console.dir(app);
 
-app.use(() => {
+app.use((req, res) => {
   console.log("wow");
+  // console.dir(req);
+  // res.send("Response");
+  // res.send는 http 응답을 보내고 생성해야 함
+  res.send({ color: "red" });
 }); // 요청이 들어오면 언제든지 콜백을 실행
 
 // 3000 : 요청을 받을 포트
