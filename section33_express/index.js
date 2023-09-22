@@ -2,13 +2,39 @@ const express = require("express"); // express 불러오기
 const app = express(); // express 실행
 // console.dir(app);
 
-app.use((req, res) => {
-  console.log("wow");
-  // console.dir(req);
-  // res.send("Response");
-  // res.send는 http 응답을 보내고 생성해야 함
-  res.send({ color: "red" });
-}); // 요청이 들어오면 언제든지 콜백을 실행
+// app.use((req, res) => {
+//   console.log("wow");
+//   // console.dir(req);
+//   // res.send("Response");
+//   // res.send는 http 응답을 보내고 생성해야 함
+//   res.send({ color: "red" });
+// }); // 요청이 들어오면 언제든지 콜백을 실행
+
+// 라우팅
+// get
+app.get("/", (req, res) => {
+  res.send("home");
+});
+
+app.get("/cats", (req, res) => {
+  res.send("Meow!!");
+});
+
+app.get("/dogs", (req, res) => {
+  res.send("woof!");
+});
+
+// post
+app.post("/cats", (req, res) => {
+  res.send("post");
+});
+
+// 라우팅 경로가 잘못 되었을 경우
+// 제네릭 응답을 만들어 라우팅 요청과 일치 하지 않을 때 응답
+// 이 코드를 가장 위에 작성하면 아래 코드가 모두 무시되기 때문에 맨 아래에 적는 것이 중요
+app.get("*", (req, res) => {
+  res.send("error");
+});
 
 // 3000 : 요청을 받을 포트
 app.listen(8080, () => {
