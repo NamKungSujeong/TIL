@@ -16,17 +16,25 @@ app.get("/", (req, res) => {
   res.send("home");
 });
 
-app.get("/cats", (req, res) => {
-  res.send("Meow!!");
-});
+// app.get("/cats", (req, res) => {
+//   res.send("Meow!!");
+// });
 
-app.get("/dogs", (req, res) => {
-  res.send("woof!");
-});
+// app.get("/dogs", (req, res) => {
+//   res.send("woof!");
+// });
 
-// post
-app.post("/cats", (req, res) => {
-  res.send("post");
+// // post
+// app.post("/cats", (req, res) => {
+//   res.send("post");
+// });
+
+// express 경로 매개변수
+// 매번 정확한 경로를 받을 수 없기 때문에 라우트를 생성해서 경로 문자열에 콜론을 이용해 변수나 경로 변수로 지정하게끔 하는 거
+app.get("/r/:rabbit", (req, res) => {
+  // console.log(req.params);
+  const { rabbit } = req.params;
+  res.send(`${rabbit} is here`);
 });
 
 // 라우팅 경로가 잘못 되었을 경우
