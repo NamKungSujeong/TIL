@@ -37,6 +37,16 @@ app.get("/r/:rabbit", (req, res) => {
   res.send(`${rabbit} is here`);
 });
 
+// 쿼리 문자열 작업
+app.get("/search", (req, res) => {
+  // console.log(req.query);
+  const { q } = req.query;
+  if (!q) {
+    res.send("Nothing found!!");
+  }
+  res.send(`you search ${q}`);
+});
+
 // 라우팅 경로가 잘못 되었을 경우
 // 제네릭 응답을 만들어 라우팅 요청과 일치 하지 않을 때 응답
 // 이 코드를 가장 위에 작성하면 아래 코드가 모두 무시되기 때문에 맨 아래에 적는 것이 중요
