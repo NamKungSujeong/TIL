@@ -10,6 +10,9 @@ const app = express(); // express 실행
 //   res.send({ color: "red" });
 // }); // 요청이 들어오면 언제든지 콜백을 실행
 
+// res.send로 응답을 보낼 때마다 하나의 요청으로 끝나고 하나 이상의 응답을 얻는 http 요청을 받을 수 없음
+// 모든 요청에 응답
+
 // 라우팅
 // get
 app.get("/", (req, res) => {

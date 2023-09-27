@@ -24,11 +24,34 @@ app.use에 두가지 매개변수를 받아야함,
 
 http 요청은 js 객체도, 어떠한 프로그래밍 언어로 된 것도 아닌 그냥 텍스트 정보인데 express가 그걸 파싱해서 js 객체로 변환시킨 후 콜백 함수의 첫 번째 인수로 전달해줌
 
-응답 갹체에는 `send` 메서드가 존재, `res.send`는 http 요청을 보냄
+응답 객체에는 `send` 메서드가 존재, `res.send`는 http 요청을 보냄
+
+```
+ app.use((req, res) => {
+   console.log("wow");
+   // res.send는 http 응답을 보내고 생성해야 함
+   res.send('Success');
+   //요청이 들어오면 언제든지 콜백을 실행
+ });
+
+```
 
 # express 라우팅
 
 - 라우팅 : 요청과 요청된 경로를 가지고 와서 응답을 갖는 어떤한 코드에 맞추는 것
+- `get`, `post`를 사용
+
+```
+app.get("/", (req, res) => {
+  res.send("home");
+});
+```
+
+```
+app.post("/cats", (req, res) => {
+   res.send("post");
+});
+```
 
 # 쿼리 문자열 작업하기
 
