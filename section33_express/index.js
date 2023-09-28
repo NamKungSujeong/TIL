@@ -1,5 +1,6 @@
 const express = require("express"); // express 불러오기
 const app = express(); // express 실행
+const path = require("path"); // path 불러오기
 // console.dir(app);
 
 // app.use((req, res) => {
@@ -70,6 +71,7 @@ const app = express(); // express 실행
 // 설정하려는 키와 해당 값 또는 특성와 해당 값 두개의 인수 설정
 app.set("view engine", "ejs");
 // set 설정을 했기 때문에 따로 불러올 필요는 없고 express에서 ejs를 불러옴
+app.set("views", path.join(__dirname, "/views"));
 
 app.get("/", (req, res) => {
   res.render("home");
