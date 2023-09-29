@@ -78,6 +78,13 @@ app.get("/", (req, res) => {
   // render : 파일을 보낼 수 있음
 });
 
+app.get("/random", (req, res) => {
+  // 데이터 넘겨주기
+  const num = Math.floor(Math.random() * 10 + 1);
+  res.render("random", { num });
+  // 키 - 값 형태로 데이터 넘겨주기
+});
+
 app.listen(8080, () => {
   console.log("Listen port 8080");
 });
