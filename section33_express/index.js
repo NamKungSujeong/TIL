@@ -85,6 +85,11 @@ app.get("/random", (req, res) => {
   // 키 - 값 형태로 데이터 넘겨주기
 });
 
+app.get("/r/:subreddit", (req, res) => {
+  const subreddit = req.params;
+  res.render("subreddit", { subreddit });
+});
+
 app.listen(8080, () => {
   console.log("Listen port 8080");
 });
