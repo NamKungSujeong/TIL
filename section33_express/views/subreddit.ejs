@@ -3,9 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= subreddit %></title>
+    <title><%= name %></title>
   </head>
   <body>
-    <h1><%= subreddit %></h1>
+    <h1><%= name %></h1>
+    <h2><%= description %></h2>
+    <p>Total : <%= subscribers %></p>
+    <hr />
+
+    <% for(let post of posts) { %>
+    <p><%= post.title %> - <%= post.author %></p>
+    <% if(post.img) { %>
+    <img src="<%= post.img %>" alt="" />
+    <% } %> <% } %>
   </body>
 </html>

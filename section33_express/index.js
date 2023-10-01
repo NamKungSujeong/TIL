@@ -1,6 +1,7 @@
 const express = require("express"); // express 불러오기
 const app = express(); // express 실행
 const path = require("path"); // path 불러오기
+const redditData = require("./data.json");
 // console.dir(app);
 
 // app.use((req, res) => {
@@ -86,8 +87,13 @@ app.get("/random", (req, res) => {
 });
 
 app.get("/r/:subreddit", (req, res) => {
-  const subreddit = req.params;
-  res.render("subreddit", { subreddit });
+  const { subreddit } = req.params;
+  const data = redditData[subreddit];
+  if (data) {
+    res.render("subreddit", { ...data });
+  } else {
+    res.render("notfound", { subreddit });
+  }
 });
 
 app.get("/cats", (req, res) => {
