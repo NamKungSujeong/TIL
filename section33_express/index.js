@@ -74,6 +74,8 @@ app.set("view engine", "ejs");
 // set 설정을 했기 때문에 따로 불러올 필요는 없고 express에서 ejs를 불러옴
 app.set("views", path.join(__dirname, "/views"));
 
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
   res.render("home");
   // render : 파일을 보낼 수 있음
