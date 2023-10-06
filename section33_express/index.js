@@ -76,9 +76,36 @@ app.set("views", path.join(__dirname, "/views"));
 
 app.use(express.static("public"));
 
+let comments = [
+  {
+    id: uuid(),
+    username: "Todd",
+    comment: "lol that is so funny!",
+  },
+  {
+    id: uuid(),
+    username: "Skyler",
+    comment: "I like to go birdwatching with my dog",
+  },
+  {
+    id: uuid(),
+    username: "Sk8erBoi",
+    comment: "Plz delete your account, Todd",
+  },
+  {
+    id: uuid(),
+    username: "onlysayswoof",
+    comment: "woof woof woof",
+  },
+];
+
 app.get("/", (req, res) => {
   res.render("home");
   // render : 파일을 보낼 수 있음
+});
+
+app.get("/comments", (req, res) => {
+  res.render("comments/index");
 });
 
 app.get("/random", (req, res) => {
