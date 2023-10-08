@@ -105,7 +105,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/comments", (req, res) => {
-  res.render("comments/index");
+  res.render("comments/index", { comments });
+});
+
+app.get("/comments/new", (req, res) => {
+  res.render("comments/new");
 });
 
 app.get("/random", (req, res) => {
