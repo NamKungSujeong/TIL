@@ -112,6 +112,13 @@ app.get("/comments/new", (req, res) => {
   res.render("comments/new");
 });
 
+app.post("/comments", (req, res) => {
+  const { comment } = req.body;
+  comments.push(comment);
+  res.redirect("/comments");
+  // 서버가 재시작되어서 예전 댓글은 지워지고 변경이 생겨서 재시작하는 로직
+});
+
 app.get("/random", (req, res) => {
   // 데이터 넘겨주기
   const num = Math.floor(Math.random() * 10 + 1);
