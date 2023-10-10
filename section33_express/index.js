@@ -78,22 +78,22 @@ app.use(express.static("public"));
 
 let comments = [
   {
-    id: uuid(),
+    id: 1,
     username: "Todd",
     comment: "lol that is so funny!",
   },
   {
-    id: uuid(),
+    id: 2,
     username: "Skyler",
     comment: "I like to go birdwatching with my dog",
   },
   {
-    id: uuid(),
+    id: 3,
     username: "Sk8erBoi",
     comment: "Plz delete your account, Todd",
   },
   {
-    id: uuid(),
+    id: 4,
     username: "onlysayswoof",
     comment: "woof woof woof",
   },
@@ -117,6 +117,12 @@ app.post("/comments", (req, res) => {
   comments.push(comment);
   res.redirect("/comments");
   // 서버가 재시작되어서 예전 댓글은 지워지고 변경이 생겨서 재시작하는 로직
+});
+
+app.get("/comments/:id", (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find((c) => c.id === id);
+  res.render("comments/show", { comment });
 });
 
 app.get("/random", (req, res) => {
