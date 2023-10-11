@@ -2,6 +2,8 @@ const express = require("express"); // express 불러오기
 const app = express(); // express 실행
 const path = require("path"); // path 불러오기
 const redditData = require("./data.json");
+const { v4: uuid } = require("uuid");
+
 // console.dir(app);
 
 // app.use((req, res) => {
@@ -78,22 +80,22 @@ app.use(express.static("public"));
 
 let comments = [
   {
-    id: 1,
+    id: uuid(),
     username: "Todd",
     comment: "lol that is so funny!",
   },
   {
-    id: 2,
+    id: uuid(),
     username: "Skyler",
     comment: "I like to go birdwatching with my dog",
   },
   {
-    id: 3,
+    id: uuid(),
     username: "Sk8erBoi",
     comment: "Plz delete your account, Todd",
   },
   {
-    id: 4,
+    id: uuid(),
     username: "onlysayswoof",
     comment: "woof woof woof",
   },
@@ -113,8 +115,8 @@ app.get("/comments/new", (req, res) => {
 });
 
 app.post("/comments", (req, res) => {
-  const { comment } = req.body;
-  comments.push(comment);
+  const { comment, username } = req.body;
+  comments.push({ comment, username, id: uuid() });
   res.redirect("/comments");
   // 서버가 재시작되어서 예전 댓글은 지워지고 변경이 생겨서 재시작하는 로직
 });
