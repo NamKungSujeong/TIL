@@ -2,6 +2,9 @@ const express = require("express"); // express 불러오기
 const app = express(); // express 실행
 const path = require("path"); // path 불러오기
 const redditData = require("./data.json");
+var methodOverride = require("method-override");
+//브라우저의 폼에서는 포스팅에 Get 말고는 다 불가능
+//브라우저 폼처럼 클라이언트가 해당 작업을 지원하지 않는 환경에서Put, Delete 등의 HTTP 동사를 쓰도록 해줌
 const { v4: uuid } = require("uuid");
 
 // console.dir(app);
@@ -78,6 +81,8 @@ app.set("views", path.join(__dirname, "/views"));
 
 app.use(express.static("public"));
 
+app.use(methodOverride("_method"));
+
 let comments = [
   {
     id: uuid(),
@@ -138,6 +143,14 @@ app.patch("/comments/:id", (req, res) => {
 // put vs patch
 // put은 전체 내용을 업데이트
 // patch는 부분적으로 수정 가능
+
+//edit
+
+app.get("/comments/:id/edit", (req, res) => {
+  const { id } = req.params;
+  const comment = comments.find((c) => c.id === id);
+  res.render("comments/edit", { comment });
+});
 
 app.get("/random", (req, res) => {
   // 데이터 넘겨주기
