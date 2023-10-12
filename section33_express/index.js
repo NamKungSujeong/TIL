@@ -126,6 +126,18 @@ app.get("/comments/:id", (req, res) => {
   const comment = comments.find((c) => c.id === id);
   res.render("comments/show", { comment });
 });
+// update
+
+app.patch("/comments/:id", (req, res) => {
+  const { id } = req.params;
+  const newComments = req.body.comment;
+  const foundComment = comments.find((c) => c.id === id);
+  foundComment.comment = newComments;
+  res.redirect("/commetns");
+});
+// put vs patch
+// put은 전체 내용을 업데이트
+// patch는 부분적으로 수정 가능
 
 app.get("/random", (req, res) => {
   // 데이터 넘겨주기
