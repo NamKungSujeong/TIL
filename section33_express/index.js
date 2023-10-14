@@ -152,6 +152,14 @@ app.get("/comments/:id/edit", (req, res) => {
   res.render("comments/edit", { comment });
 });
 
+// delete
+
+app.delete("/comments/:id", (req, res) => {
+  const { id } = req.params;
+  comments = comments.filter((c) => c.id !== id);
+  res.redirect("/comments");
+});
+
 app.get("/random", (req, res) => {
   // 데이터 넘겨주기
   const num = Math.floor(Math.random() * 10 + 1);
