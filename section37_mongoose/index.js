@@ -26,3 +26,27 @@ const amadeus = new Movie({
   score: 9.2,
   rating: "R",
 });
+
+Movie.insertMany([
+  {
+    title: "AAA",
+    year: 2000,
+    score: 5,
+    rating: "PG",
+  },
+  {
+    title: "BBB",
+    year: 1986,
+    score: 2.2,
+    rating: "R",
+  },
+  {
+    title: "CCC",
+    year: 1998,
+    score: 10,
+    rating: "R",
+  },
+]).then((data) => {
+  console.log("IT WORKED!!");
+  console.log(data);
+});
