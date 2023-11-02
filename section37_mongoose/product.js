@@ -13,9 +13,22 @@ const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    maxlength: 20,
   },
   price: {
     type: Number,
+  },
+  onSale: {
+    type: Boolean,
+    // 기본 값 넣어주기
+    default: false,
+  },
+  categories: [String],
+  qty: {
+    online: {
+      type: Number,
+      default: 0,
+    },
   },
 });
 
@@ -23,6 +36,7 @@ const Product = mongoose.model("Product", productSchema);
 
 const bike = new Product({ name: "Bike", price: 999 });
 
+// save 바로 실행 가능
 bike
   .save()
   .then((data) => console.log(data))
