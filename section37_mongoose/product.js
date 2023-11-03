@@ -37,7 +37,17 @@ const Product = mongoose.model("Product", productSchema);
 const bike = new Product({ name: "Bike", price: 999 });
 
 // save 바로 실행 가능
-bike
-  .save()
-  .then((data) => console.log(data))
-  .catch((err) => console.log("error"));
+// bike
+//   .save()
+//   .then((data) => console.log(data))
+//   .catch((err) => console.log("error"));
+
+Product.findOneAndUpdate(
+  { name: "Bike" },
+  { price: -10 },
+  { new: true, runValidators: true }
+).then((data) => console.log(data).catch((err) => console.log(err)));
+// price에 음수값이 들어갔는데도 작동을 함
+// 뭔가를 만들면 유효성 검사가 자동으로 적용되는데 그게 업데이트되고 나서는
+// 안되기 때문에 Mongoose한테 계속 유효성 검사를 적용하라고 얘기해줘야 함
+// runValidators 옵션을 true로 넣어주기
