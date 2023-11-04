@@ -17,6 +17,7 @@ const productSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
+    min: [0, "가격은 양수여야합니다."],
   },
   onSale: {
     type: Boolean,
@@ -29,6 +30,10 @@ const productSchema = new mongoose.Schema({
       type: Number,
       default: 0,
     },
+  },
+  size: {
+    type: String,
+    enum: ["S", "M", "L"],
   },
 });
 
