@@ -56,3 +56,22 @@ Product.findOneAndUpdate(
 // 뭔가를 만들면 유효성 검사가 자동으로 적용되는데 그게 업데이트되고 나서는
 // 안되기 때문에 Mongoose한테 계속 유효성 검사를 적용하라고 얘기해줘야 함
 // runValidators 옵션을 true로 넣어주기
+
+// productSchema.method.greet = function () {
+//   console.log("Hello");
+// };
+
+productSchema.method.toggleOnSale = function () {
+  this.onSale = !this.onSale;
+  return this.save();
+};
+
+const findProduct = async () => {
+  const foundProduct = await Product.findOne({ name: "Bike" });
+  // findProduct.greet();
+  console.log(foundProduct);
+  await foundProduct.toggleOnSale();
+  console.log(foundProduct);
+};
+
+findProduct();
