@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 
-// 내보내기 한 모델 연결
+// 내보내기 한 Product 모델 연결
 const Product = require("./models/product");
 
 main().catch((err) => console.log(err));
