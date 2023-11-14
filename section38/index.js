@@ -16,10 +16,25 @@ async function main() {
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/products", async (req, res) => {
   const products = await Product.find({});
   res.render("products/index", { products });
+});
+
+app.get("/products/new", (req, res) => {
+  res.render("/products/new");
+});
+
+// 입력한 정보를 받을
+app.post("/products", async (req, res) => {
+  // 받은 정보로 새로운 모델 생성
+  const newProduct = new Product(req.body);
+  // 저장
+  await newProduct.save();
+  // res.send("making your prodict");
+  res.redirect(`/products/${newProduct._id}`);
 });
 
 app.get("/products/:id", async (req, res) => {
