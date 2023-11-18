@@ -60,6 +60,11 @@ productSchema.methods.greet = function () {
   console.log(`- from ${this.name}`);
 };
 
+const find = async () => {
+  const fidnProduct = await this.find();
+  fidnProduct.greet();
+};
+
 // 인스턴스 메서드
 productSchema.methods.toggleOnSale = function () {
   this.onSale = !this.onSale;

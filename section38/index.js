@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
+const methodOverride = require("method-override");
 
 // 내보내기 한 Product 모델 연결
 const Product = require("./models/product");
@@ -17,6 +18,7 @@ async function main() {
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 app.get("/products", async (req, res) => {
   const products = await Product.find({});
@@ -41,6 +43,21 @@ app.get("/products/:id", async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
   res.render("/products/show", { product });
+});
+
+// 업데이트
+app.get("/product/:id/edit", async (req, res) => {
+  const { id } = req.params;
+  const prodcut = await Product.findById(id);
+  res.render("products/edit", { prodcut });
+});
+
+app.put("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findByIdAndUpdate(id, req.body, {
+    runValidators: true,
+  });
+  res.redirect(`/products/${product._id}`);
 });
 
 app.listen(3000, () => {
