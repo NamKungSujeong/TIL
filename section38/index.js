@@ -20,13 +20,15 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
+const categories = ["fruit", "vegetable", "dairy"];
+
 app.get("/products", async (req, res) => {
   const products = await Product.find({});
   res.render("products/index", { products });
 });
 
 app.get("/products/new", (req, res) => {
-  res.render("/products/new");
+  res.render("/products/new", { categories });
 });
 
 // 입력한 정보를 받을
@@ -58,6 +60,14 @@ app.put("/products/:id", async (req, res) => {
     runValidators: true,
   });
   res.redirect(`/products/${product._id}`);
+});
+
+// 삭제
+
+app.delete("/products/:id", async (req, res) => {
+  const { id } = req.params;
+  const deleteProduct = Product.findByIdAndDelete(id);
+  res.redirect("/products");
 });
 
 app.listen(3000, () => {
