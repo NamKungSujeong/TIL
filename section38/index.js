@@ -4,7 +4,6 @@ const path = require("path");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 
-
 // 내보내기 한 Product 모델 연결
 const Product = require("./models/product");
 
@@ -24,8 +23,14 @@ app.use(methodOverride("_method"));
 const categories = ["fruit", "vegetable", "dairy"];
 
 app.get("/products", async (req, res) => {
-  const products = await Product.find({});
-  res.render("products/index", { products });
+  const { category } = req.query;
+  if (category) {
+    const products = await Product.find({ category });
+    res.render("products/index", { products, category });
+  } else {
+    const products = await Product.find({});
+    res.render("products/index", { products, category: "All" });
+  }
 });
 
 app.get("/products/new", (req, res) => {
