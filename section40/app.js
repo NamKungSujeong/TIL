@@ -8,15 +8,16 @@ app.use((req, res, next) => {
 });
 
 // 미들웨어 패스워드 설정 데모
-app.use((req, res, next) => {
+const verify = (req, res, next) => {
   const { password } = req.query;
-  if (password === "ffffff") {
+  if (password === "fff") {
     next();
   }
   res.send("YOU NEED A PASSWORD");
-});
+};
 
-app.get("/secret", (req, res) => {
+// 특정 경로를 보호하기 위해 특정 route에 콜백함수로 넘겨주기
+app.get("/secret", verify, (req, res) => {
   res.send("SECRET");
 });
 
