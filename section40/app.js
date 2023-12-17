@@ -6,6 +6,7 @@ app.use((req, res, next) => {
   console.log(req.method, req.path);
   next();
 });
+
 // 사용자 지정 에러 처리
 // 주의할 점
 // express에서 오류처리 함수를 만들 때 네 개의 인수를 전달해야 한다
