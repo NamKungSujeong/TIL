@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+const AppError = require("./AppError");
+
 app.use((req, res, next) => {
   req.requestTime = Date.now();
   console.log(req.method, req.path);
@@ -13,10 +15,12 @@ app.use((req, res, next) => {
 // err, req, res, next
 
 app.use((err, req, res, next) => {
-  console.log("#################");
-  console.log("########ERROR#######");
-  console.log("#################");
-  next(err);
+  // console.log("#################");
+  // console.log("########ERROR#######");
+  // console.log("#################");
+  // next(err);
+  const { status = 500, message = "Something went wrong" } = err;
+  res.status(status).send(message);
   // 오류 처리 미들웨어를 불러낼 때는 반드시 next 안에 err를 전달해야 함
   // 그렇지 않으면 다음 미들웨어를 실행시키려고 함
 });
@@ -29,7 +33,8 @@ const verify = (req, res, next) => {
     next();
   }
   // res.send("YOU NEED A PASSWORD");
-  throw new Error("YOU NEED A PASSWORD");
+  // res.status(401);
+  throw new AppError("YOU NEED A PASSWORD", 401);
 };
 // 특정 경로를 보호하기 위해 특정 route에 콜백함수로 넘겨주기
 app.get("/secret", verify, (req, res) => {
@@ -43,3 +48,7 @@ app.get("/error", (req, res) => {});
 app.listen(3000, () => {
   console.log("port is listening");
 });
+
+// 프로덕션 환경에서 오류 핸들러의 body 응답 디폴트는 HTML 상태 코드 메시지이고 다른 환경에선 err.stack
+// JavaScript나 Express에서 오류를 발생시키면 모든 오류는 자동으로 스택이 생김
+//
