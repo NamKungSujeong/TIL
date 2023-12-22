@@ -45,6 +45,25 @@ app.get("/secret", verify, (req, res) => {
 //기본적으로 상태 코드 500으로 응답
 app.get("/error", (req, res) => {});
 
+// 비동기 에러 처리
+// 라우트 핸들러와 미들웨어에 의해 발동된 비동기 함수에서 반환된 오류의 경우에는
+// 다음 함수로 전달하여 Express가 잡아내서 처리할 수 있게 해야 함
+
+//ex)
+// app.get("/product/:id", async (req, res, next) => {
+//   const { id } = req.params;
+//   const product = await Product.findById(id);
+//   if (!product) {
+//     return next(new AppError("Product Not Found", 404));
+//   }
+//   res.send("product/show", { product });
+// });
+
+app.use((err, res, req, next) => {
+  const { status = 500, message = "Something went wrong" } = err;
+  res.status(status).send(message);
+});
+
 app.listen(3000, () => {
   console.log("port is listening");
 });
