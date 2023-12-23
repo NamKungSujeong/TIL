@@ -32,6 +32,7 @@ const verify = (req, res, next) => {
   if (password === "fff") {
     next();
   }
+  
   // res.send("YOU NEED A PASSWORD");
   // res.status(401);
   throw new AppError("YOU NEED A PASSWORD", 401);
