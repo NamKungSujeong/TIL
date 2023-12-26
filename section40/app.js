@@ -76,6 +76,31 @@ app.get("/error", (req, res) => {});
 //   }
 // });
 
+// 비동기 유틸리티 정의하기
+// Express에서 쓰는 거의 모든 게 비동기 함수라서 다 try ... catch 문을 쓰는게 번거로움
+
+// ex )
+// 비동기 콜백을 감싸는 함수를 만들어서
+// 다음 오류가 나올 때마다 반복해서 try...catch 문을 쓰지 않아도 되게 하기
+
+// function warpAsync(fn) {
+//   return function (req, res, next) {
+//     fn(req, res, next).catch((e) => next(e));
+//   };
+// }
+
+// app.get(
+//   "/product/:id",
+//   warpAsync(async (req, res, next) => {
+//     const { id } = req.params;
+//     const product = await Product.findById(id);
+//     if (!product) {
+//       return next(new AppError("Product Not Found", 404));
+//     }
+//     res.send("product/show", { product });
+//   })
+// );
+
 app.use((err, res, req, next) => {
   const { status = 500, message = "Something went wrong" } = err;
   res.status(status).send(message);
