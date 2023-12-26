@@ -32,7 +32,7 @@ const verify = (req, res, next) => {
   if (password === "fff") {
     next();
   }
-  
+
   // res.send("YOU NEED A PASSWORD");
   // res.status(401);
   throw new AppError("YOU NEED A PASSWORD", 401);
@@ -58,6 +58,22 @@ app.get("/error", (req, res) => {});
 //     return next(new AppError("Product Not Found", 404));
 //   }
 //   res.send("product/show", { product });
+// });
+
+// 비동기 에러처리 2
+// try ... catch 시용
+// 비동기 함수일 때만 해당이 되고 다른 경우엔 이전에 봤던 것처럼 Express가 처리
+// 예를 들어 new를 render할 땐 try...catch 문으로 감쌀 필요가 없음 뭔가 잘못되더라도 Express가 감지할 수 있기 때문
+//
+
+// app.post("/products", async (req, res, next) => {
+//   try {
+//     const product = new Product(req.body);
+//     await product.save();
+//     res.redirect(`/products/${product._id}`);
+//   } catch (e) {
+//     next(e);
+//   }
 // });
 
 app.use((err, res, req, next) => {
