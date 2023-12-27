@@ -101,6 +101,19 @@ app.get("/error", (req, res) => {});
 //   })
 // );
 
+// mongoose 오류 구분하기
+
+// const handleValidationErr = (err) => {
+//   console.dir(err);
+//   return err;
+// };
+
+// app.use((err, req, res, next) => {
+//   console.log(err.name);
+//   if (err.name === "ValidationError") err = handleValidationErr(err);
+//   next(err);
+// });
+
 app.use((err, res, req, next) => {
   const { status = 500, message = "Something went wrong" } = err;
   res.status(status).send(message);
